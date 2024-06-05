@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2024 a las 03:49:08
+-- Tiempo de generación: 05-06-2024 a las 02:49:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -99,6 +99,20 @@ CREATE TABLE `generos` (
   `Nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `generos`
+--
+
+INSERT INTO `generos` (`id`, `Nombre`) VALUES
+(1, 'Corridos Tumbados'),
+(2, 'Banda'),
+(3, 'Rock'),
+(4, 'K-Pop'),
+(5, 'Electronica'),
+(6, 'Pop'),
+(7, 'Soul'),
+(8, 'Reggaeton');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +124,17 @@ CREATE TABLE `membresias` (
   `Descripción` varchar(100) NOT NULL,
   `Precio` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `membresias`
+--
+
+INSERT INTO `membresias` (`id`, `Descripción`, `Precio`) VALUES
+(1, 'Free', 0),
+(2, 'Individual', 0),
+(3, 'Familiar', 0),
+(4, 'Duo', 0),
+(6, 'Estudiante', 0);
 
 -- --------------------------------------------------------
 
@@ -152,6 +177,22 @@ CREATE TABLE `usuarios` (
   `Correo` varchar(150) NOT NULL,
   `Membresia_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `Nombre`, `Correo`, `Membresia_id`) VALUES
+(1, 'Ángel Santiago Pou Mápula', 'angelsantiagopou@gmail.com', 2),
+(2, 'Ekain Israel Cervera Rodriguez', 'masturbin69@gmail.com', 1),
+(3, 'Andrea Salas Beltran', 'locajojos@gmail.com', 3),
+(4, 'Marco Antonio Guerrero Valle', 'lethalcompany@gmail.com', 6),
+(5, 'Marco Uriel Aguiluz Ibarra', 'ganadordemilbatallas@gmail.com', 4),
+(6, 'Diego Ángel Chávez Guerra', 'niñodelbalon@gmail.com', 1),
+(7, 'Larissa Benjarano Félix', 'larissa34@gmail.com', 4),
+(8, 'Jaime Fernando Hernandez Mendoza ', 'jaimemendoza@gmail.com', 2),
+(9, 'Juan Fernando Gastelum Quintero ', 'goldowarzone@gmail.com', 1),
+(10, 'Alejandro Aguilar de la Herran ', 'aguilarherran@gmail.com', 2);
 
 --
 -- Índices para tablas volcadas
@@ -253,13 +294,13 @@ ALTER TABLE `favoritos`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `membresias`
 --
 ALTER TABLE `membresias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `playlist`
@@ -277,7 +318,7 @@ ALTER TABLE `playlist_canciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
