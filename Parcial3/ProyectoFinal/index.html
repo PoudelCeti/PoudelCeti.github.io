@@ -26,6 +26,46 @@
                 <p>Consulta #2. Obtener el listado de los cursos(nombres) y su asignatura correspondiente.</p>
                 <img src="Consulta2.png" alt="" class="img-fluid">
             </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT alumno.nombre, alumno.apellido1, alumno.apellido2 <br>
+                    FROM alumno <br>
+                    WHERE alumno.beca = 'si';
+                </h3>
+                <p>Consulta #3. Obtener listado de alumnos (nombre y apellido) de alumnos que tengan beca.</p>
+                <img src="Consulta3.png" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT profesor.nombre,profesor.apellido1, profesor.apellido2, tlfcontactoprof.telefono <br>
+                    FROM profesor <br>
+                    INNER JOIN tlfcontactoprof <br>
+                    ON profesor.idProfesor = tlfcontactoprof.idProfesor;
+                </h3>
+                <p>Consulta #4. Obtener listado de profesores (nombre y apellido), y su numero de contacto.</p>
+                <img src="Consulta4.png" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT alumno.* <br>
+                    FROM alumno <br>
+                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno <br>
+                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
+                    WHERE asignatura.nombre = "Programacion"
+                </h3>
+                <p>Consulta #5. Obtener listado de alumnos (todos los campos) que estan inscritos a la asignatura de Programación.</p>
+                <img src="Consulta5.png" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT profesor.nombre, profesor.apellido1, profesor.apellido2, asignatura.nombre <br>
+                    FROM profesor <br>
+                    INNER JOIN impartir ON profesor.idProfesor = impartir.idProfesor <br>
+                    INNER JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura
+                </h3>
+                <p>Consulta #6. Obtener listado de profesores y asignaturas que imparten.</p>
+                <img src="Consulta6.png" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
     <script src="js/bootstrap.js"></script>
