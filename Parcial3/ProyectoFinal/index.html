@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Final Parcial #3</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/est.css">
     <script src="js/jquery-3.7.1.js"></script>
 </head>
 <body>
@@ -12,98 +13,175 @@
         <h1>Proyecto Final Parcial #3</h1>
         <div class="row mt-2">
             <div class="col">
-                <h3 class="card">SELECT * FROM alumno;</h3>
-                <p>Consulta #1. Obtener el listado de todos los alumnos en la Facultad.</p>
-                <img src="Consulta1.png" alt="" class="img-fluid">
-            </div> <br>
-            <div class="col">
-                <h3 class="card">
-                    SELECT curso.nombreDescriptivo, asignatura.nombre <br>
-                    FROM curso <br>
-                    INNER JOIN asignatura <br>
-                    ON curso.idCurso = asignatura.curso;
-                </h3>
-                <p>Consulta #2. Obtener el listado de los cursos(nombres) y su asignatura correspondiente.</p>
-                <img src="Consulta2.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT alumno.nombre, alumno.apellido1, alumno.apellido2 <br>
-                    FROM alumno <br>
-                    WHERE alumno.beca = 'si';
-                </h3>
-                <p>Consulta #3. Obtener listado de alumnos (nombre y apellido) de alumnos que tengan beca.</p>
-                <img src="Consulta3.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT profesor.nombre,profesor.apellido1, profesor.apellido2, tlfcontactoprof.telefono <br>
-                    FROM profesor <br>
-                    INNER JOIN tlfcontactoprof <br>
-                    ON profesor.idProfesor = tlfcontactoprof.idProfesor;
-                </h3>
-                <p>Consulta #4. Obtener listado de profesores (nombre y apellido), y su numero de contacto.</p>
-                <img src="Consulta4.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT alumno.* <br>
-                    FROM alumno <br>
-                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno <br>
-                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
-                    WHERE asignatura.nombre = "Programacion"
-                </h3>
-                <p>Consulta #5. Obtener listado de alumnos (todos los campos) que estan inscritos a la asignatura de Programación.</p>
-                <img src="Consulta5.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT profesor.nombre, profesor.apellido1, profesor.apellido2, asignatura.nombre <br>
-                    FROM profesor <br>
-                    INNER JOIN impartir ON profesor.idProfesor = impartir.idProfesor <br>
-                    INNER JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura
-                </h3>
-                <p>Consulta #6. Obtener listado de profesores y asignaturas que imparten.</p>
-                <img src="Consulta6.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT asignatura.idAsignatura, asignatura.nombre, <br>
-                    COUNT(matricula.idAlumno) AS t_alumnos <br>
-                    FROM asignatura asignatura <br>
-                    JOIN matricula matricula ON asignatura.idAsignatura = matricula.idAsignatura <br>
-                    GROUP BY asignatura.idAsignatura, asignatura.nombre <br>
-                    ORDER BY t_alumnos DESC LIMIT 1;
-                </h3>
-                <p>Consulta #7. Mostrar la asignatura con más alumnos y su total.</p>
-                <img src="Consulta7.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT alumno.* <br>
-                    FROM alumno <br>
-                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno  <br>
-                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
-                    WHERE asignatura.coordinador = 'PR016'
-                </h3>
-                <p>Consulta #8. Obtener el listado de alumnos que le imparten el profesor con la matricula PR016 (Jóse Manuel).</p>
-                <img src="Consulta8.png" alt="" class="img-fluid">
-            </div>
-            <div class="col">
-                <h3 class="card">
-                    SELECT curso.idCurso, curso.nombreDescriptivo AS nombre_curso, <br>
-                    asignatura.idAsignatura, asignatura.nombre AS nombre_asignatura, <br>
-                    profesor.idProfesor, profesor.nombre AS nombre_profesor, <br>
-                    profesor.apellido1 AS apellido1_profesor, <br>
-                    profesor.apellido2 AS apellido2_profesor <br>
-                    FROM curso curso <br>
-                    JOIN asignatura asignatura ON curso.idCurso = asignatura.curso <br>
-                    JOIN impartir impartir ON asignatura.idAsignatura = impartir.idAsignatura <br>
-                    JOIN profesor profesor ON impartir.idProfesor = profesor.idProfesor <br>
-                    ORDER BY curso.idCurso, asignatura.idAsignatura, profesor.idProfesor;
-                </h3>
-                <p>Consulta #9. Obtener el listado de cursos con asignatura y el profesor que la imparten.</p>
-                <img src="Consulta9.png" alt="" class="img-fluid">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Consulta #1. Obtener el listado de todos los alumnos en la Facultad.
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>SELECT * FROM alumno;</strong> <br>
+                                <img src="Consulta1.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Consulta #2. Obtener el listado de los cursos(nombres) y su asignatura correspondiente.
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT curso.nombreDescriptivo, asignatura.nombre <br>
+                                    FROM curso <br>
+                                    INNER JOIN asignatura <br>
+                                    ON curso.idCurso = asignatura.curso;
+                                </strong> <br>
+                                <img src="Consulta2.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Consulta #3. Obtener listado de alumnos (nombre y apellido) de alumnos que tengan beca.
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT alumno.nombre, alumno.apellido1, alumno.apellido2 <br>
+                                    FROM alumno <br>
+                                    WHERE alumno.beca = 'si';
+                                </strong> <br>
+                                <img src="Consulta3.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Consulta #4. Obtener listado de profesores (nombre y apellido), y su numero de contacto.
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT profesor.nombre, profesor.apellido1, profesor.apellido2, tlfcontactoprof.telefono <br>
+                                    FROM profesor <br>
+                                    INNER JOIN tlfcontactoprof <br>
+                                    ON profesor.idProfesor = tlfcontactoprof.idProfesor;
+                                </strong> <br>
+                                <img src="Consulta4.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Consulta #5. Obtener listado de alumnos (todos los campos) que estan inscritos a la asignatura de Programación.
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT alumno.* <br>
+                                    FROM alumno <br>
+                                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno <br>
+                                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
+                                    WHERE asignatura.nombre = "Programacion"
+                                </strong> <br>
+                                <img src="Consulta5.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Consulta #6. Obtener listado de profesores y asignaturas que imparten.
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT profesor.nombre, profesor.apellido1, profesor.apellido2, asignatura.nombre <br>
+                                    FROM profesor <br>
+                                    INNER JOIN impartir ON profesor.idProfesor = impartir.idProfesor <br>
+                                    INNER JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura
+                                </strong> <br>
+                                <img src="Consulta6.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Consulta #7. Mostrar la asignatura con más alumnos y su total.
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT asignatura.idAsignatura, asignatura.nombre, <br>
+                                    COUNT(matricula.idAlumno) AS t_alumnos <br>
+                                    FROM asignatura asignatura <br>
+                                    JOIN matricula matricula ON asignatura.idAsignatura = matricula.idAsignatura <br>
+                                    GROUP BY asignatura.idAsignatura, asignatura.nombre <br>
+                                    ORDER BY t_alumnos DESC LIMIT 1;
+                                </strong> <br>
+                                <img src="Consulta7.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                Consulta #8. Obtener el listado de alumnos que le imparten el profesor con la matricula PR016 (Jóse Manuel).
+                            </button>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT alumno.* <br>
+                                    FROM alumno <br>
+                                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno  <br>
+                                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
+                                    WHERE asignatura.coordinador = 'PR016'
+                                </strong> <br>
+                                <img src="Consulta8.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingNine">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                Consulta #9. Obtener el listado de cursos con asignatura y el profesor que la imparten.
+                            </button>
+                        </h2>
+                        <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT curso.idCurso, curso
+                                    SELECT curso.idCurso, curso.nombreDescriptivo AS nombre_curso, <br>
+                                    asignatura.idAsignatura, asignatura.nombre AS nombre_asignatura, <br>
+                                    profesor.idProfesor, profesor.nombre AS nombre_profesor, <br>
+                                    profesor.apellido1 AS apellido1_profesor, <br>
+                                    profesor.apellido2 AS apellido2_profesor <br>
+                                    FROM curso curso <br>
+                                    JOIN asignatura asignatura ON curso.idCurso = asignatura.curso <br>
+                                    JOIN impartir impartir ON asignatura.idAsignatura = impartir.idAsignatura <br>
+                                    JOIN profesor profesor ON impartir.idProfesor = profesor.idProfesor <br>
+                                    ORDER BY curso.idCurso, asignatura.idAsignatura, profesor.idProfesor;
+                                </strong> <br>
+                                <img src="Consulta9.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
