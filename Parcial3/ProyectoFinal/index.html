@@ -66,6 +66,45 @@
                 <p>Consulta #6. Obtener listado de profesores y asignaturas que imparten.</p>
                 <img src="Consulta6.png" alt="" class="img-fluid">
             </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT asignatura.idAsignatura, asignatura.nombre, <br>
+                    COUNT(matricula.idAlumno) AS t_alumnos <br>
+                    FROM asignatura asignatura <br>
+                    JOIN matricula matricula ON asignatura.idAsignatura = matricula.idAsignatura <br>
+                    GROUP BY asignatura.idAsignatura, asignatura.nombre <br>
+                    ORDER BY t_alumnos DESC LIMIT 1;
+                </h3>
+                <p>Consulta #7. Mostrar la asignatura con más alumnos y su total.</p>
+                <img src="Consulta7.png" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT alumno.* <br>
+                    FROM alumno <br>
+                    INNER JOIN matricula ON alumno.idAlumno = matricula.idAlumno  <br>
+                    INNER JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
+                    WHERE asignatura.coordinador = 'PR016'
+                </h3>
+                <p>Consulta #8. Obtener el listado de alumnos que le imparten el profesor con la matricula PR016 (Jóse Manuel).</p>
+                <img src="Consulta8.png" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+                <h3 class="card">
+                    SELECT curso.idCurso, curso.nombreDescriptivo AS nombre_curso, <br>
+                    asignatura.idAsignatura, asignatura.nombre AS nombre_asignatura, <br>
+                    profesor.idProfesor, profesor.nombre AS nombre_profesor, <br>
+                    profesor.apellido1 AS apellido1_profesor, <br>
+                    profesor.apellido2 AS apellido2_profesor <br>
+                    FROM curso curso <br>
+                    JOIN asignatura asignatura ON curso.idCurso = asignatura.curso <br>
+                    JOIN impartir impartir ON asignatura.idAsignatura = impartir.idAsignatura <br>
+                    JOIN profesor profesor ON impartir.idProfesor = profesor.idProfesor <br>
+                    ORDER BY curso.idCurso, asignatura.idAsignatura, profesor.idProfesor;
+                </h3>
+                <p>Consulta #9. Obtener el listado de cursos con asignatura y el profesor que la imparten.</p>
+                <img src="Consulta9.png" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
     <script src="js/bootstrap.js"></script>
