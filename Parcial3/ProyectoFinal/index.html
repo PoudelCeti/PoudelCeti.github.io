@@ -181,6 +181,35 @@
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                Consulta #10. Obtener listado de alumnos, con asignatura que cursa, profesor que la imparte y curso al que pertenece.
+                            </button>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    SELECT alumno.idAlumno, alumno.nombre AS nombre_alumno, <br>
+                                    alumno.apellido1 AS apellido1_alumno, <br>
+                                    alumno.apellido2 AS apellido2_alumno, <br>
+                                    asignatura.idAsignatura, asignatura.nombre AS nombre_asignatura, <br>
+                                    profesor.idProfesor, profesor.nombre AS nombre_profesor, <br>
+                                    profesor.apellido1 AS apellido1_profesor, <br>
+                                    profesor.apellido2 AS apellido2_profesor, <br>
+                                    curso.idCurso, curso.nombreDescriptivo AS nombre_curso <br>
+                                    FROM alumno alumno <br>
+                                    JOIN matricula matricula ON alumno.idAlumno = matricula.idAlumno <br>
+                                    JOIN asignatura asignatura ON matricula.idAsignatura = asignatura.idAsignatura <br>
+                                    JOIN impartir impartir ON asignatura.idAsignatura = impartir.idAsignatura <br>
+                                    JOIN profesor profesor ON impartir.idProfesor = profesor.idProfesor <br>
+                                    JOIN curso curso ON asignatura.curso = curso.idCurso <br>
+                                    ORDER BY alumno.idAlumno, asignatura.idAsignatura
+                                </strong> <br>
+                                <img src="Consulta10.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
