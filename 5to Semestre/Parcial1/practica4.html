@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen en línea</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <form action="practica4.php" method="POST">
+            <div class="row" style="background-color: rgb(67, 92, 161)">
+                <h1 style="color: white;">Exámen de Preguntas simples que todos deberian de saber</h1><hr>
+                    
+                
+                
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            1. ¿Quién es el hermano de Mario Bros?
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="radio" name="pregunta1" value="Luigi" required>  Luigi </p>
+                            <p><input type="radio" name="pregunta1" value="Peach" required>  Peach </p>
+                            <p><input type="radio" name="pregunta1" value="Luigy" required >  Luigy </p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            2. ¿Quién es la mascota oficial de SEGA?
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="radio" name="pregunta2" value="Sega boy" required>  Sega boy </p>
+                            <p><input type="radio" name="pregunta2" value="Sonic" required>  Sonic </p>
+                            <p><input type="radio" name="pregunta2" value="Crash" required >  Crash </p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            3. Villanos de la franquicia Sonic (Selecciona 2)
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="checkbox" name="pregunta3[]" value="Dr. Eggman"> Dr. Eggman </p>
+                            <p><input type="checkbox" name="pregunta3[]" value="Shadow"> Shadow </p>
+                            <p><input type="checkbox" name="pregunta3[]" value="Tails"> Tails </p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            4. Personaje de caricatura acompañado de un elefante rosa y un pato amarillo con sombrero verde
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="radio" name="pregunta4" value="Caillou" required> Caillou </p>
+                            <p><input type="radio" name="pregunta4" value="Mickey" required> Mickey </p>
+                            <p><input type="radio" name="pregunta4" value="Pocoyo" required > Pocoyo </p>
+                        </div>
+                    </div>
+                    <div class="card p-4 mb-4" style="background-color: rgb(204, 154, 61);">
+                        <p>
+                            5. “¡YA BASTA  <input type="text" name="pregunta5" value="" required> ¡”
+
+                        </p>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            6. ¿A quién mató Freezer y provocó la transformación de Goku a SSJ1?
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="radio" name="pregunta6" value="Yamcha" required> Yamcha </p>
+                            <p><input type="radio" name="pregunta6" value="Krilin" required> Krilin </p>
+                            <p><input type="radio" name="pregunta6" value="Vegeta" required > Vegeta </p>
+                        </div>
+                    </div>
+                    <div class="card p-4 mb-4" style="background-color: rgb(204, 154, 61);">
+                        <p>
+                            7. “¡KAME <input type="text" name="pregunta7" value="" required> HA!”
+
+                        </p>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            8. ¿Quiénes conforman el Equipo 7 junto con Naruto? (Selecciona 2)
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="checkbox" name="pregunta8[]" value="Sakura"> Sakura </p>
+                            <p><input type="checkbox" name="pregunta8[]" value="Neji"> Neji </p>
+                            <p><input type="checkbox" name="pregunta8[]" value="Sasuke" > Sasuke </p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color: rgb(204, 154, 61);">
+                            9. ¿Como se llama el Sensei del Equipo 7?
+                        </div>
+                        <div class="card-body" style="background-color: rgb(163, 142, 20);">
+                            <p><input type="radio" name="pregunta9" value="Maito Gai" required> Maito Gai </p>
+                            <p><input type="radio" name="pregunta9" value="Azuma" required> Azuma </p>
+                            <p><input type="radio" name="pregunta9" value="Kakashi" required> Kakashi </p>
+                        </div>
+                    </div>
+                    <div class="card p-4 mb-4" style="background-color: rgb(204, 154, 61);">
+                        <p>
+                            10. “Si te atreves a ponerle una mano a mi Sensei, ¡TE <input type="text" name="pregunta10" value="" required>!”
+                        </p>
+                    </div>
+            </div>
+            <br><input type="submit" class="btn btn-primary" value="Terminar examen" style="background-color: rgb(147, 211, 111);">
+        </form>
+    </div>
+</body>
+</html>
